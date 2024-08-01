@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipedrive Integration</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+        }
+        .iframe-content {
+            position: relative;
+            padding: 20px;
+            max-width: 900px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .iframe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .iframe-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .close-button {
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+        }
+        .card {
+            box-sizing: border-box;
+            width: auto;
+            margin: 10px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .card input, .card select, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        .fio, .job-block, .time-block, .location-block{
+            display: flex;
+            flex-direction: row;
+            gap:5px;
+        }
+        textarea {
+            height: 100px; 
+        }
+        .card input:focus, .card select:focus {
+            border-color: blue;
+            outline: none;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        #createJobButton {
+            background-color: yellow;
+        }
+        #saveInfoButton {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-content">
+        <div class="iframe-header">
+            <h1>NEW Create a job</h1>
+            <button class="close-button" id="closeIframeButton">×</button>
+        </div>
+        <div class="card-container">
+            <div class="card client-details">
+                <h2>Client Details</h2>
+                <div class="fio">
+                    <input id="firstName" type="text" placeholder="First name" value="Test">
+                <input id="lastName" type="text" placeholder="Last name" value="Test">
+                </div>
+                <input id="phone" type="text" placeholder="Phone" value="43434343">
+                <input id="email" type="text" placeholder="Email (optional)" value="adf@gmail.com">
+            </div>
+            <div class="card job-details">
+                <h2>Job Details</h2>
+                <div class="job-block">
+                <input id="jobType" type="text" placeholder="Job type" value="Test">
+                <input id="jobSource" type="text" placeholder="Job source" value="Test">
+                </div>
+                <textarea id="jobDescription" type="" placeholder="Job description (optional)" value="Test"></textarea>
+            </div>
+            <div class="card service-location">
+                <h2>Service Location</h2>
+                <input id="address" type="text" placeholder="Address" value="Test">
+                <input id="city" type="text" placeholder="City" value="Test">
+                <input id="state" type="text" placeholder="State" value="Test">
+                <div class="location-block">
+                <input id="zipCode" type="text" placeholder="Zip code" value="Test">
+                <input id="area" type="text" placeholder="Area" value="Test">
+                </div>
+            </div>
+            <div class="card scheduled">
+                <h2>Scheduled</h2>
+                <input id="startDate" type="date" placeholder="Start date">
+                <div class="time-block">
+                <input id="startTime" type="time" placeholder="Start time"  value=20:34>
+                <input id="endTime" type="time" placeholder="End time"  value=20:34>
+            </div>
+                <select id="testSelect">
+                    <option value="Option1">Option 1</option>
+                    <option value="Option2">Option 2</option>
+                </select>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="createJobButton">Create job</button>
+            <button id="saveInfoButton">Save info</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+
+</body>
+</html>
